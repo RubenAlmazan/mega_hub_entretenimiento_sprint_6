@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\base_mega_api.props" />
+</Project>
