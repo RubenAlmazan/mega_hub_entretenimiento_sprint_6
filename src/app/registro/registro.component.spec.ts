@@ -1,0 +1,39 @@
+import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { RegistroComponent } from './registro.component';
+import { CommonModule } from '@angular/common'; // Importar CommonModule
+import { NavbarComponent } from '../navbar/navbar.component'; // Importar otros componentes necesarios
+import { StorageService } from '../servicios/info.service';
+import { ApiDataService } from '../api-data.service';
+import { HttpClientTestingModule } from '@angular/common/http/testing'; // Importar HttpClientTestingModule para pruebas
+import { RouterTestingModule } from '@angular/router/testing'; 
+
+describe('RegistroComponent', () => {
+  let component: RegistroComponent;
+  let fixture: ComponentFixture<RegistroComponent>;
+
+  beforeEach(async () => {
+    await TestBed.configureTestingModule({
+      imports: [
+        RegistroComponent, // Importar el componente independiente
+        CommonModule,
+        NavbarComponent,
+        HttpClientTestingModule, // Importar HttpClientTestingModule
+        RouterTestingModule // Importar RouterTestingModule para pruebas con rutas
+      ],
+      providers: [
+        StorageService,
+        ApiDataService // Proveer ApiDataService
+      ]
+
+    })
+    .compileComponents();
+
+    fixture = TestBed.createComponent(RegistroComponent);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
+  });
+
+  it('should create', () => {
+    expect(component).toBeTruthy();
+  });
+});

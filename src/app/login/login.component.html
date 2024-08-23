@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mega+ │ Sistema de entretenimiento</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: black;
+            /* Color de fondo de toda la página */
+            color: black;
+            /* Color del texto por defecto */
+        }
+
+        #sesion {
+            background-color: black;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .login-container {
+            font-family: Arial;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 500px;
+            text-align: center;
+        }
+
+        h2 {
+            margin-bottom: 10px;
+            color: black;
+        }
+
+        .input-group {
+            margin-bottom: 15px;
+            text-align: left;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            text-align: left;
+        }
+
+        input {
+            width: 100%;
+            padding: 8px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        #ini_sesion {
+            width: 100%;
+            padding: 10px;
+            display: flex;
+            border: 1px solid black;
+            background-color: black;
+            color: white;
+            border-radius: 4px;
+            font-size: 16px;
+            cursor: pointer;
+            text-align: center;
+        }
+
+        #ini_sesion:hover {
+            background-color: white;
+            color: black;
+        }
+
+        .dark-mode body {
+            background-color: #02192b;
+            /* Color de fondo en modo oscuro */
+            color: #fff;
+            /* Color de texto en modo oscuro */
+        }
+    </style>
+</head>
+
+<body>
+    <div id="sesion">
+        <div class="login-container">
+            <h2 style="display: flex; justify-content: center; align-items: center;">Bienvenido al sistema</h2>
+            <form #loginForm="ngForm" (ngSubmit)="onSubmit(loginForm.value)">
+                <div style="display: flex; justify-content: center; align-items: center;">
+                    <img src="../logo_mega_horizontal_claro.png" style="width: 400px; height: auto;">
+                </div>
+                <br>
+                <p>Inicie sesión para acceder</p>
+                <br>
+                <label for="name">Nombre:</label>
+                <input type="text" id="name" name="name" ngModel required>
+                <br><br>
+                <label for="password">Contraseña:</label>
+                <input type="password" id="password" name="password" ngModel required>
+                <br><br>
+                <input id="ini_sesion" type="submit" value="Iniciar Sesion">
+                <br>
+                <hr>
+                <br>
+                <a href="/registro">Crear Cuenta</a>
+            </form>
+        </div>
+    </div>
+</body>
+
+</html>

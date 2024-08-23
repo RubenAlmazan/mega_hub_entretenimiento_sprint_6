@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mega+ | Pagina Principal</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</head>
+
+<body>
+    <header>
+        <div class="navbar">
+            <div class="logo">
+                <img src="icono.ico" style="width: 26px; height: 26px; margin-bottom: -4px;" alt="Logo">
+                MEGA+
+            </div>
+            <div>
+                <p *ngIf="credencial" style="color: white; margin-top: 2px; margin-bottom: 0px;">
+                    Bienvenido {{ credencial.username }}
+                </p>
+            </div>
+            <div>
+                <a href="/inicio" id="juegos-link"><i class="fas fa-times-circle"></i></a>
+            </div>
+        </div>
+    </header>
+
+    <div class="parent">
+        <div class="div1">
+            <img src="portada.jpg" alt="Inicio">
+            <span>
+                <a href="#inicio">
+                    <img src="logo_mega_horizontal_claro.png" class="logo">
+                </a>
+                <p *ngIf="credencial" style="font-size: 25px; margin-bottom: 0px;">
+                    Bienvenido {{ credencial.username }}
+                </p>
+                <p style="margin-bottom: -5px;">Todo el mejor entretenimiento, en un SOLO lugar</p>
+            </span>
+        </div>
+        <div class="div2">
+            <a (click)="VerGenero()" class="image-link">
+            <i class="fas fa-tags"></i> Géneros
+            </a>
+        </div>
+        <div class="div3">
+            <a (click)="VerFavoritos()" class="image-link">
+            <i class="fas fa-star"></i> Favoritos
+            </a>
+        </div>
+        <div class="div4">
+            <a (click)="VerConfiguracion()" class="image-link">
+                <i class="fas fa-cog"></i> Configuración
+            </a>
+        </div>
+        
+    </div>
+
+    <div id="inicio" class="bienvenida">
+        <p id="titulo"><b>Explora nuestro catalogo de contenido </b></p>
+    </div>
+
+    <div class="image-container">
+        <div *ngFor="let item of lista_contenido_filtrada">
+            <div *ngFor="let genero of lista_genero">
+                <div *ngIf="item.tipo == genero.id">
+                    <p style="margin-bottom: 1px">{{ genero.nombre }}</p>
+                    <a (click)="ObtenerDetalle(item.id)" class="image-link">
+                        <img class="item-imagen" src="{{ item.imagen }}" alt="{{ item.clave }}">
+                    </a>
+                    <p class="item-nombre">{{ item.nombre }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <br>
+
+</body>
+
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Lista de Géneros </title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</head>
+
+<body>
+    <header>
+        <div class="navbar">
+          <div class="logo" style="margin-left: -20px">
+            <a href="/main">
+              <img src="icono.ico" style="width: 26px; height: 26px; margin-bottom: -4px;" alt="Logo">
+              MEGA+
+            </a>
+          </div>
+          <div>
+            <p *ngIf="credencial" style="color: white; margin-top: 2px; margin-bottom: 0px; margin-left: -20px">
+              Bienvenido {{ credencial.nombre }}
+            </p>
+          </div>
+          <div>
+            <a href="/inicio" id="juegos-link"><i class="fas fa-times-circle"></i></a>
+          </div>
+        </div>
+      </header>
+
+    <br>
+
+    <div id="inicio" class="bienvenida" style="margin-top: -12px;">
+        <p id="titulo"><b> Lista de géneros</b></p>
+      </div>
+
+    <div class="image-container">
+        <div *ngFor="let item of lista_genero">
+            <p style="margin-bottom: 1px; text-align: center; font-size: 20px;">{{ item.nombre }}</p>
+            <a (click)="GeneroEspecifico(item.id, item.nombre)" class="image-link">
+                <img class="item-imagen" src="{{ item.imagen }}" alt="{{ item.id }}">
+            </a>
+        </div>
+    </div>
+
+</body>

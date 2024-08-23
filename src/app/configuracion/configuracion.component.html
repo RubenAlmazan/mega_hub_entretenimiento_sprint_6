@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Configuracion</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</head>
+
+<body>
+    <header>
+        <div class="navbar">
+            <div class="logo" style="margin-left: -20px">
+                <a href="/main">
+                    <img src="icono.ico" style="width: 26px; height: 26px; margin-bottom: -4px;" alt="Logo">
+                    MEGA+
+                </a>
+            </div>
+            <div>
+                <p *ngIf="credencial" style="color: white; margin-top: 2px; margin-bottom: 0px; margin-left: -20px">
+                    Bienvenido {{ credencial.nombre }}
+                </p>
+            </div>
+            <div>
+                <a href="/inicio" id="juegos-link"><i class="fas fa-times-circle"></i></a>
+            </div>
+        </div>
+    </header>
+
+    <div id="inicio" class="bienvenida">
+        <p id="titulo"><b> Configuracion </b></p>
+    </div>
+
+    <br>
+
+    <div *ngIf="credencial">
+        <p style="text-align: center; font-size: 18px;">
+            Si deseas restablecer la configuración de contenido a su estado inicial, por favor haz clic en el siguiente
+            botón.
+            <br><br>
+            Esta acción devolverá todos los contenidos a su estado predeterminado, lo que significa que cualquier cambio
+            realizado en la configuración actual será revertido.
+            <br><br>
+            Todos los elementos y contenidos que puedan estar ocultos o modificados se mostrarán de nuevo y estarán
+            disponibles como estaban originalmente.
+            <br><br>
+        </p>
+
+        <div style="display: flex; justify-content: center; align-items: center; text-align: center;">
+
+            <button id="toggle-mode" class="modo-button">
+                <a (click)="restaurarValores(credencial.id_usuario)"> Restaurar Valores </a>
+            </button>
+
+        </div>
+        <br>
+    </div>
+
+    <div *ngIf="showImage" class="loading-div">
+        <img src="cargando.gif" alt="Cargando...">
+    </div>
+
+</body>

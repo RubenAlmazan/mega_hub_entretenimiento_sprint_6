@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</head>
+
+<body>
+  <header>
+    <div class="navbar">
+      <div class="logo" style="margin-left: -20px">
+        <a href="/favoritos">
+          <img src="icono.ico" style="width: 26px; height: 26px; margin-bottom: -4px;" alt="Logo">
+          MEGA+
+        </a>
+      </div>
+      <div>
+        <p *ngIf="credencial" style="color: white; margin-top: 2px; margin-bottom: 0px; margin-left: -20px">
+          Bienvenido {{ credencial.nombre }}
+        </p>
+      </div>
+      <div>
+        <a href="/inicio" id="juegos-link"><i class="fas fa-times-circle"></i></a>
+      </div>
+    </div>
+  </header>
+
+  <div *ngIf="credencial">
+    <div *ngFor="let item of lista_detalle_contenido">
+      <div *ngIf="item.id === credencial.id_contenido">
+
+        <div id="inicio" class="bienvenida">
+          <p id="titulo"><b>{{ item.nombre }}</b></p>
+          <title>{{ item.nombre }}</title>
+        </div>
+  
+        <div>
+          <img class="item-imagen" [src]="item.imagen" alt="{{ item.clave }}">
+        </div>
+  
+        <div style="text-align: center;">
+          <p id="titulo" style="font-size: 20px;">Descripción</p>
+          <p style="font-size: 20px;">{{item.descripcion}}</p>
+        </div>
+  
+        <div class="button-container">
+          <a href="{{item.video}}" target="_blank">
+            <button class="btn-ver-pelicula">Ver Trailer</button>
+          </a>
+          <a (click)="borrarFavorito(credencial.id_usuario, credencial.id_contenido)">
+          <button class="btn-quitar">Quitar</button>
+        </a>
+      </div>
+      
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="showImage" class="loading-div">
+    <img src="cargando.gif" alt="Cargando...">
+  </div>
+  
+</body>

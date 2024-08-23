@@ -1,0 +1,59 @@
+.button-container {
+    display: flex;
+    justify-content: center;
+    /* Centra los botones horizontalmente */
+    align-items: center;
+    /* Centra los botones verticalmente */
+    gap: 15px;
+    /* Espacio entre los botones */
+    flex-wrap: wrap;
+    /* Permite que los botones se envuelvan en líneas si el espacio es limitado */
+}
+
+.button-container a {
+    text-decoration: none;
+    /* Quita el subrayado de los enlaces */
+}
+
+.btn-ver-pelicula,
+.btn-quitar {
+    flex: 1;
+    /* Los botones se expanden para llenar el espacio disponible */
+    min-width: 120px;
+    /* Ancho mínimo de los botones */
+    padding: 10px;
+    /* Ajusta el relleno para el tamaño del botón */
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    color: white;
+    text-align: center;
+    /* Centra el texto dentro del botón */
+}
+
+.btn-ver-pelicula {
+    background-color: blue;
+}
+
+.btn-favoritos {
+    background-color: yellow;
+    color: black;
+}
+
+.btn-quitar {
+    background-color: red;
+}
+
+.loading-div {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #fffafaa2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}

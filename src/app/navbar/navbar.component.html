@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <style>
+        body {
+            margin: 0;
+            /* Elimina el margen predeterminado */
+            padding: 0;
+            /* Elimina el relleno predeterminado */
+            box-sizing: border-box;
+            height: auto;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        #eslogan {
+            text-align: center;
+            font-weight: bold;
+            /* Opcional para que el texto sea negrita */
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <header>
+            <div class="navbar">
+                <div class="logo">
+                    <img src="icono.ico" style="width: 26px; height: 26px; margin-bottom: -4px;" alt="Logo">
+                    MEGA+
+                </div>
+                <div>
+                    <a (click)="visible()" id="juegos-link"><i class="fas fa-bars"></i></a>
+                </div>
+            </div>
+
+            <div class="navbar-juegos hidden">
+                <table>
+                    <thead>
+                        <tr>
+                            <th><a href="/main">
+                                    <i class="fas fa-arrow-left"></i>
+                                    Regresar
+                            </a></th>
+                            <th><a href="/inicio">
+                                <i class="fas fa-cog"></i>
+                                Cerrar Sesión
+                            </a></th>
+                        </tr>
+                    </thead>
+                </table>
+            </div>
+        </header>
+
+    </div>
+</body>
+
+</html>
