@@ -1,0 +1,9 @@
+version: '3'
+services:   
+  web:  
+    image: base_mega_peliculas  
+    build:        
+      context: .      
+      dockerfile: Dockerfile    
+    ports:      
+      - "8080:80" #"8081:80"

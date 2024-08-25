@@ -1,0 +1,20 @@
+apiversion: apps/v1
+kind: Deployment
+metadata:  
+  name: base-mega-peliculas
+spec:  
+  replicas: 2  
+  selector:    
+    matchLabels:      
+      app: base-mega-peliculas  
+  template:    
+    metadata:      
+      labels:        
+        app: base-mega-peliculas    
+    spec:      
+      containers:      
+        - name: base-mega-peliculas        
+          image: base_mega_peliculas:latest      
+          imagePullPolicy: ifNotPresent    
+          ports:        
+          - containerPort: 80

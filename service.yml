@@ -1,0 +1,13 @@
+apiversion: v1
+kind: Service
+metadata:  
+  name: base-mega-peliculas-service
+spec: 
+  type: NodePort
+  selector:    
+    app: base_mega_peliculas  
+  ports:    
+    - protocol: TCP      
+      port: 80      
+      targetPort: 80  
+      nodePort: 30000
