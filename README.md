@@ -132,17 +132,21 @@ docker build -t base_mega_peliculas .
 --> Después de construir la imagen, ejecutamos este contenedor utilizando el siguiente comando:
 
 docker run -d -p 8080:80 base_mega_peliculas:latest
+
 o
+
 docker run -d -p 8080:80 --name base_mega_peliculas_container base_mega_peliculas:latest
 
 --> Luego, para desplegar el contenedor en Kubernetes, ejecutamos el siguiente comando:
 
 kubectl apply -f deployment.yaml
+
 kubectl apply -f service.yaml
 
 --> Después, ejecutamos los siguientes comandos para verificar el estado de los pods y servicios 
 
 kubectl get pods
+
 kubectl get services
 
 --> Por último, para acceder a la aplicación en Minikube, ejecutamos el siguiente comando
@@ -154,7 +158,9 @@ minikube service base-mega-peliculas-service
 - Docker y Kubernetes para la API
 
 ---> En Visual Studio Code, abrir una Nueva Terminal
+
 --> Dirigirse a la ruta fuente de la API
+
 ---> Ingresar el siguiente comando para construirla imagen de Docker de la API
 
 docker build -t base_mega_api:latest .
@@ -166,17 +172,21 @@ minikube start
 --> Después, ingresamos lossiguientes comandos para subir la imagen Docker al registro de Minikube
 
 eval $(minikube docker-env)
+
 docker build -t base_mega_api:latest .
 
 --> Luego, para desplegar el contenedor en Kubernetes con su respectiva configuraciòn, ejecutamos los siguientes comandos:
 
 kubectl apply -f deployment.yaml
+
 kubectl apply -f service.yaml
 
 --> Luego, ejecutamos el siguiete coamdno para  verificar que el despliegue se haya realizado correctamente s:
 
 kubectl get deployments
+
 kubectl get pods
+
 kubectl get services
 
 --> Por último, ejecutamos el siguiente coamndo para genrar una url que nos permita acceder a la API:
@@ -188,31 +198,49 @@ minikube service base-mega-api-service --url
 - Pruebas unitarias
  
 --> ng test: Este se utiliza para ejecutar las pruebas unitarias
+
 --> ng test --code-coverage: Este se utiliza para ver el code coverage de las pruebas unitarias
 
 ## Requerimientos técnicos
 
 --> Visual Studio Code
+
 --> Node v20.13.1
+
 --> npm v10.5.2
+
 --> Angular CLI 18.1.0
+
 --> TypeScript v5.5.2
+
 --> SQL Server Management Studio 20
+
 --> .NET 8.0.9
+
 --> Docker 8.0
+
 --> Kubernetes 1.33.1
 
 ## Bibliotecas y dependenciasl
 
 --> @angular/common (Versión 18): Este proporciona módulos comunes como directivas, pipes, y servicios utilizados en aplicaciones Angular.
+
 --> @angular/compiler  (Versión 18): Este genera la compilación de plantillas Angular en código ejecutable.
+
 --> @angular/core  (Versión 18): Este contiene los componentes básicos del framework Angular, como la inyección de dependencias y la gestión del ciclo de vida de los componentes.
+
 --> rxjs  (Versión 7.8): Esta es una biblioteca para programación reactiva usando observables en JavaScript para gestionar y combinar eventos y datos de manera declarativa.
+
 --> typescript  (Versión 5.4.2): Este es un lenguaje de programación que extiende JavaScript al añadir tipado estático.
+
 --> @angular/cli  (Versión18.0.6): Esta es una herramienta de línea de comandos para crear, construir y mantener aplicaciones Angular.
+
 --> @angular/compiler-cli  (Versión 18): Este es un soporte del compilador Angular para TypeScript.
+
 --> karma  (Versión6.4): Este es el ejecutor de pruebas para ejecutar tests en diversos navegadores.
+
 --> jasmine-core  (Versión 5.1): Esta es una biblioteca para escribir pruebas unitarias en JavaScript.
+
 --> Swagger (Versión 8.0.8): Esta es una herramienta que facilita la creación, documentación y prueba de APIs.
 
 ## Descripción de como se realizó
@@ -239,19 +267,24 @@ De esta manera, se logró utilizar estas herramientas para desplegar la aplicaci
 
 ## Reporte de Code Coverage y Reporte de testing
 
-IMAGEN 1
-IMAGEN 2
+![image](https://github.com/user-attachments/assets/f2ee6c73-d6ba-4373-8bf7-69bdd280b31a)
+
+![image](https://github.com/user-attachments/assets/2de209f2-c95a-44ef-afee-73adf6f9ce6a)
 
 ## Diagrama Entidad Relación
 
-IMAGEN 1
+![image](https://github.com/user-attachments/assets/21e78333-0059-4e62-b0c7-aa35f6d6eb88)
 
 ## Mejoras futuras
 
 --> Incorporación de un Modo Administrador para la gestión de usuarios y contenidos de la plataforma de manera gráfica. 
+
 --> Creación de un Sistema de Encriptamiento de Contraseñas para proteger la privacidad de los usuarios y mejorar la seguridad general de la plataforma.
+
 --> Modo Buscador para Buscar Películas por Nombre para facilitar el acceso a contenidos específicos de manera rápida y eficiente.
+
 --> Integración de Recomendaciones Personalizadas, basado en el historial de visualización y preferencias del usuario, para ofrecer contenido personalizado y mejorar la experiencia del usuario.
+
 --> Introducir un sistema de notificaciones y alertas para informar a los usuarios sobre nuevos contenidos, actualizaciones importantes o recordatorios relacionados con su cuenta.
 
 ## Documentación de la API
@@ -296,44 +329,67 @@ Esta API está estructurada de la siguiente manera:
 Modelo Contenido
 
 /api/Contenido: Muestra todo el catálogo de películas disponibles.
+
 /api/Contenido/buscar_contenido: Muestra una película por su ID.
+
 /api/Contenido/Insertar_contenido: Inserta una nueva película en la tabla Contenido.
+
 /api/Contenido/actualizar_contenido: Actualiza algún campo del registro de una película.
+
 /api/Contenido/eliminar_contenido: Elimina una película por su ID.
+
 /api/Contenido/buscar_conjunto_contenido: Muestra una película por su ID y clave.
+
 /api/Contenido/buscar_contenido_genero: Muestra un conjunto de películas por género.
 
 Modelo Eliminado
 
 /api/Eliminado: Muestra todas las películas marcadas como No gustado o Eliminado.
+
 /api/Eliminado/buscar_eliminado: Muestra una lista de películas eliminadas correspondientes al ID de un usuario.
+
 /api/Eliminado/insertar_eliminado: Inserta una película No gustada por un usuario.
+
 /api/Eliminado/eliminar_eliminado: Elimina una película No gustada de la tabla.
 
 Modelo Favorito
 
 /api/Favorito: Muestra todas las películas marcadas como Favorito.
+
 /api/Favorito/buscar_favorito: Muestra una lista de películas catalogadas como favoritas por un usuario.
+
 /api/Favorito/insertar_favorito: Inserta una película favorita por el usuario.
+
 /api/Favorito/eliminar_favorito: Elimina una película favorita de la tabla.
 
 Modelo Genero
 
 /api/Genero: Muestra todos los géneros disponibles.
+
 /api/Genero/busca_genero: Muestra un género por su ID.
+
 /api/Genero/insertar_genero: Inserta un nuevo género en la tabla.
+
 /api/Genero/actualizar_genero: Actualiza algún campo específico del género.
+
 /api/Genero/eliminar_genero: Elimina un género de la tabla.
+
 /api/Genero/buscar_conjunto_genero: Muestra un género por su ID y nombre.
 
 Modelo Usuario
 
 /api/Usuario: Muestra todos los usuarios disponibles.
+
 /api/Usuario/buscar_usuario: Muestra un usuario por su ID.
+
 /api/Usuario/insertar_usuario: Inserta un nuevo usuario en la tabla.
+
 /api/Usuario/eliminar_usuario: Elimina un usuario por su ID.
+
 /api/Usuario/actualizar: Actualiza alguno de los campos de un usuario.
+
 /api/Usuario/buscar_conjunto_usuario: Muestra un usuario por su ID y nombre.
+
 
 ## Archivo de Configuración de Ambientes de Docker y Kubernetes
 
@@ -344,54 +400,93 @@ Archivo DockerFile
 En este archivo, se usa una imagen base de Node.js para construir el proyecto y se usa una imagen base de NGINX para servir la aplicación
 
 FROM node:16-alpine AS build
+
 WORKDIR /app
+
 COPY package*.json ./
+
 RUN npm install
+
 COPY . .
+
 RUN npm run  
 
 FROM nginx:alpine
+
 COPY --from=build /app/dist/base_mega_peliculas /usr/share/nginx/html
+
 EXPOSE 80
+
 CMD ["nginx", "-g", "daemon off;"]
 
 Hecho esto, en este archivo, se define el despliegue de la aplicación en Kubernetes, se crean dos réplicas de la aplicación "base-mega-peliculas" usando su imagen màs reciente y se expone el puerto 80 en cada contenedor.
 
 apiversion: apps/v1
+
 kind: Deployment
+
 metadata:  
+
   name: base-mega-peliculas
-spec:  
-  replicas: 2  
-  selector:    
-    matchLabels:      
+  
+spec:
+
+  replicas: 2
+  
+  selector:  
+  
+    matchLabels:  
+    
       app: base-mega-peliculas  
-  template:    
-    metadata:      
-      labels:        
+      
+  template:  
+  
+    metadata: 
+    
+      labels:  
+      
         app: base-mega-peliculas    
+        
     spec:      
-      containers:      
-        - name: base-mega-peliculas        
-          image: base_mega_peliculas:latest      
-          imagePullPolicy: ifNotPresent    
-          ports:        
+    
+      containers:  
+      
+        - name: base-mega-peliculas 
+        
+          image: base_mega_peliculas:latest 
+          
+          imagePullPolicy: ifNotPresent 
+          
+          ports: 
+          
           - containerPort: 80
 
 Por último, en este archivo, se define un servicio en Kubernetes que expone la aplicación "base-mega-peliculas" en el puerto 80 y asigna un puerto externo NodePort 30000 para acceder a ella desde fuera del clúster.
 
 apiversion: v1
+
 kind: Service
+
 metadata:  
+
   name: base-mega-peliculas-service
+  
 spec: 
+
   type: NodePort
-  selector:    
+  
+  selector: 
+  
     app: base_mega_peliculas  
+    
   ports:    
-    - protocol: TCP      
-      port: 80      
-      targetPort: 80  
+  
+    - protocol: TCP 
+    
+      port: 80     
+      
+      targetPort: 80 
+      
       nodePort: 30000
 
 - API
@@ -399,80 +494,129 @@ spec:
 En este archivo, se configura un entorno mínimo y ligero de ASP.NET Core utilizando la imagen base oficial de Microsoft para ejecutar la aplicación, se prepara el contenedor para recibir los archivos de la aplicación y exponer los puertos necesarios. Después, se utiliza una imagen del SDK de .NET para el desarrollo de la API en el contenedor, se restauran las dependencias del proyecto (base_mega_api.csproj) y luego se compila el código fuente. Luego, se realiza una publicación que genera una versión optimizada de la aplicación para su ejecución en un entorno de producción y los archivos de salida se almacenan en una carpeta de destino. Por último, se utiliza la imagen de ASP.NET Core para crear el contenedor final que ejecutará la aplicación y se define un punto de entrada (ENTRYPOINT) que especifica cómo se debe iniciar la aplicación dentro del contenedor. 
 
 FROM mrc.microsoft.com/dotnet/aspnet:8.0 as base
+
 WORKDIR /app
+
 EXPOSE 80
+
 EXPOSE 443
 
 FROM mrc.microsoft.com/dotnet/sdk:8.0 as build
+
 WORKDIR /src
+
 COPY ["./base_mega_api.csproj", "./"]
+
 RUN dotnet restore "./base_mega_api.csproj"
+
 COPY . .
+
 WORKDIR "/src/."
+
 RUN dotnet build "./base_mega_api.csproj" -c Release -o /app/build
 
 FROM build as publish 
+
 RUN dotnet publish "./base_mega_api.csproj" -c Release -o /app/build
 
 FROM base as final
+
 WORKDIR /app
+
 COPY --from=publish /app/publish .
+
 ENTRYPOINT [ "dotnet", "base_mega_api.dll" ]
 
 Por otro alado, en este archivo, se define el despliegue en Kubernetes de la API. Esat crea dos réplicas de la aplicación "base-mega-api" usando su imagen más reciente y se garantiza su disponibilidad en el puerto 80.
 
 apiversion: apps/v1
+
 kind: Deployment
+
 metadata:  
+
   name: base-mega-api
+  
 spec:  
-  replicas: 2  
-  selector:    
-    matchLabels:      
+
+  replicas: 2 
+  
+  selector: 
+  
+    matchLabels:
+    
       app: base-mega-api  
+      
   template:    
-    metadata:      
-      labels:        
-        app: base-mega-api    
-    spec:      
-      containers:      
-        - name: base-mega-api        
-          image: base_mega_api:latest    
-          imagePullPolicy: ifNotPresent    
-          ports:        
+  
+    metadata:  
+    
+      labels:  
+      
+        app: base-mega-api 
+        
+    spec:     
+    
+      containers:  
+
+        - name: base-mega-api   
+        
+          image: base_mega_api:latest  
+          
+          imagePullPolicy: ifNotPresent 
+          
+          ports:      
+          
           - containerPort: 80
 
 Por último, en ste archivo, se define un servicio en Kubernetes que expone la aplicación "base-mega-api" en el puerto 80 dentro del clúster y asigna el puerto externo NodePort 30007 para acceder a la aplicación desde fuera del clúster.
 
 apiversion: v1
+
 kind: Service
+
 metadata:  
+
   name: base-mega-api-service
+  
 spec: 
+
   type: NodePort
-  selector:    
+  
+  selector:  
+  
     app: base_mega_api 
+    
   ports:    
-    - protocol: TCP      
-      port: 80      
+  
+    - protocol: TCP   
+    
+      port: 80    
+      
       targetPort: 80  
+      
       NodePort: 30007
 
 ## Problemas conocidos
 
 --> Re-estructuración de la API utilizando el modelo vista-controlador
+
 --> Despliegue dela aplicación utilizando Kubernetes 
+
 --> Entender la sintaxis de ASP.NET Y C#  para programar correctamente la API 
 
 ## Retrospectiva
 
 ¿Qué hice bien?
+
 Implementar los conocimientos adquiridos en sprints anteriores y aprender nuevas habilidades a través de la documentación necesaria, para entender lo que se requería para ejecutar las tareas correspondientes y así, lograr crear un sistema funcional y eficiente que cumpla con los objetivos del proyecto.
 
 ¿Qué no salio bien?
+
 Gestión de tiempo y tardar demasiado en comprender la lógica del modelo vista-controlador para ejecutarla en la API del sistema. 
 
 ¿Qué puedo hacer diferente?
+
 Aprender a detalle sobre el funcionamiento del modelo vista-controlador para la ejecución de APIs, implementar funciones avanzadas para mejorar el funcionamiento del sistema y eficientar la experiencia del usuario., aprende sobre la correcta instalación y configuración de herramientas de despliegue y conocer sobre diferentes funciones que se puedan realizar con las herramientas aprendidas como: ASP.NET, C#  Docker y kubernetes
 
 ## Especiicaciones detalladas de descarga de proyecto en Angular
