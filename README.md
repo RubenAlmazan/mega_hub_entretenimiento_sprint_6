@@ -11,30 +11,81 @@ A nivel técnico, esta plataforma representa la culminación de nuestro proceso 
 ## Objetivos
 
 --> Implementar un proyecto funcional, utilizando Docker y Kubernetes, para su incorporación a un sistema real de producción. 
+
 --> Normalizar la base de datos para eficientar el almacenamiento y gestión de los registros generados
+
 --> Actualizar la API del sistema utilizando el modelo vista-controlador y las herramientas de .NET para asegurar y agilizar la comunicación entre el frontend y el backend.  
+
 --> Implementar mejoras en el sistema para mejorar la experiencia del usuario y ampliar las funcionalidades disponibles. 
 
 ## Visualización del proyecto
 
-IMAGENES
+![image](https://github.com/user-attachments/assets/97ffa625-b98a-4e0b-a8e8-3946a7a07aa5)
+
+![image](https://github.com/user-attachments/assets/28c126f8-137f-4155-a92b-fd8e845bfdb6)
+
+![image](https://github.com/user-attachments/assets/ad3a7be6-c4a1-4f11-a568-f45809625192)
+
+![image](https://github.com/user-attachments/assets/8057b5c0-4456-4019-ac8a-d196dc69f6a0)
+
+![image](https://github.com/user-attachments/assets/571a194a-b322-4e21-b992-210d1016afff)
+
+![image](https://github.com/user-attachments/assets/d912fb9d-8925-4f55-8915-52fea58e691f)
+
+![image](https://github.com/user-attachments/assets/595ad3f7-8e59-43de-9486-fd239006c44a)
+
+![image](https://github.com/user-attachments/assets/8ad9a41f-47ea-4e6f-a7c7-6a5c5fb9a102)
+
+![image](https://github.com/user-attachments/assets/61555a11-2e0b-4a7c-8473-e3b02279da65)
+
+![image](https://github.com/user-attachments/assets/f0ca2409-582d-4b40-b43c-68be66afc2de)
+
+![image](https://github.com/user-attachments/assets/db782336-ee70-4962-bff6-37318ae55618)
 
 ## Visualización del proyecto de forma responsiva
 
-IMAGENES
+![image](https://github.com/user-attachments/assets/9755c12c-2c63-41e5-aae4-be2f127523bd)
+
+![image](https://github.com/user-attachments/assets/ff14fe7e-0086-4ddb-8a44-d9faec54721f)
+
+![image](https://github.com/user-attachments/assets/b37258fc-7fcf-4bec-a6b2-616461c014be)
+
+![image](https://github.com/user-attachments/assets/46b564c1-13ed-4047-ab07-7e884314ef5f)
+
+![image](https://github.com/user-attachments/assets/d4df00d3-1559-4157-8434-ddafc57bef35)
+
+![image](https://github.com/user-attachments/assets/81473fc3-7a27-4969-9191-2118be284a29)
+
+![image](https://github.com/user-attachments/assets/10093ba7-708e-479a-a285-521a43c6ab40)
+
+![image](https://github.com/user-attachments/assets/6eb26200-f8df-4bc4-b998-8dd4006727a4)
+
+![image](https://github.com/user-attachments/assets/9c63b6b9-2a8c-4696-a075-66927afd150c)
+
+![image](https://github.com/user-attachments/assets/4621601e-1c69-4a5c-ab17-1d11110e3d8d)
+
+![image](https://github.com/user-attachments/assets/2e1cb6d6-71d9-4d6c-904a-c7430388e8c7)
 
 ## Instrucciones para su instalación
 
 - Proyecto de Angular
 
 --> Descargar el proyecto
+
 --> Descomprimir la carpeta en la ubicación requerida
+
 --> Descargar Nodejs
+
 --> Instalar Nodejs en el equipo
+
 --> Acceder a Visual Studio Code
+
 --> Abrir el proyecto en Visual Studio Code
+
 --> Abrir la terminal
+
 --> En la terminal, utilizar el comando npm install -g @angular/cli para instalar Angular
+
 --> Ejecutar ng serve para iniciar el proyecto
 
 ¡Listo! El proyecto está disponible.
@@ -42,10 +93,15 @@ IMAGENES
 - API
 
 --> Acceder a Visual Studio Code
+
 ---> Abrir una Nueva Terminal
+
 Nota: Abrir una nueva terminal a la par de que se ejecuta el proyecto de Angular
+
 --> Dirígirse a la carpeta base_mega_api
+
 --> Abrir el archivo “appsettings.json”
+
 --> En la seccion de "DefaultConnection", igresar las credenciales necesarioas para acceder a las base de datos.
 
 "DefaultConnection": 
@@ -64,8 +120,11 @@ dotnet run
 - Docker y Kubernetes para el proyecto de Angular
 
 --> Acceder a Visual Studio Code
+
 ---> Abrir una Nueva Terminal
+
 --> Dirigirse a la ruta fuente del proyecto
+
 ---> Ingresar el siguiete comando para construir la imagen de Docker
 
 docker build -t base_mega_peliculas .
